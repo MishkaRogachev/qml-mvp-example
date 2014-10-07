@@ -1,7 +1,5 @@
 #include "qml_menu_view.h"
 
-#include <QDebug>
-
 #include "../main_view/qml_main_view.h"
 
 namespace
@@ -23,12 +21,11 @@ void QmlMenuView::show(IMainView* parentView)
                                parentView)->visualItem(::placeholder));
 
     connect(m_item, SIGNAL(clicked(QString)),
-            this, SLOT(onMenuActived(QString)));
-    m_item->setProperty("model", QStringList( { "File", "Edit", "View" } ));
+            this, SIGNAL(selected(QString)));
+
 }
 
-void QmlMenuView::onMenuActived(QString value)
+void QmlMenuView::setMenuModel(const QStringList& model)
 {
-    qDebug() << value;
+    m_item->setProperty("model", model);
 }
-

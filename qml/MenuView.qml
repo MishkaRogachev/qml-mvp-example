@@ -20,7 +20,7 @@ Row {
             font.underline: textMouseArea.containsMouse
             font.pointSize: (textMouseArea.containsMouse &&
                              textMouseArea.pressed) ? 14 : 12
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenter: root.verticalCenter
 
             MouseArea {
                 id: textMouseArea

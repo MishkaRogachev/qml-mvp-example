@@ -13,7 +13,8 @@ SOURCES += \
     sources/views/main_view/qml_main_view.cpp \
     sources/views/menu_view/qml_menu_view.cpp \
     sources/views/qquick_item_view.cpp \
-    sources/views/qml_item_view.cpp
+    sources/views/qml_item_view.cpp \
+    sources/domain/menu_model.cpp
 
 
 HEADERS += \
@@ -26,7 +27,8 @@ sources/presenters/menu_presenter/menu_presenter.h \
     sources/views/menu_view/i_menu_view.h \
     sources/views/menu_view/qml_menu_view.h \
     sources/views/qquick_item_view.h \
-    sources/views/qml_item_view.h
+    sources/views/qml_item_view.h \
+    sources/domain/menu_model.h
 
 
 RESOURCES += \

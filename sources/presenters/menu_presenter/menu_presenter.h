@@ -9,10 +9,17 @@ class MenuPresenter: public QObject
 
 public:
     MenuPresenter(IViewPool* viewPool, QObject* parent = nullptr);
+    ~MenuPresenter();
+
     void exec(IMainView* parentView);
 
+private slots:
+    void updateView();
+    void onSelected(const QString& value);
+
 private:
-    IMenuView* m_view;
+    class MenuPresenterImpl;
+    MenuPresenterImpl* d;
 };
 
 #endif // MENU_PRESENTER_H

@@ -12,9 +12,7 @@ public:
     explicit QmlMenuView(QObject* parent);
 
     virtual void show(IMainView* parentView) override;
-
-private slots:
-    void onMenuActived(QString value);
+    virtual void setMenuModel(const QStringList& model) override;
 };
 
 #endif // QML_MENU_VIEW_H
