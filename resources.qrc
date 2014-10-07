@@ -4,5 +4,7 @@
         <file>qml/Bar.qml</file>
         <file>qml/MenuView.qml</file>
         <file>resources/icons/menu.svg</file>
+        <file>qml/Icon.qml</file>
+        <file>resources/icons/quit.svg</file>
     </qresource>
 </RCC>

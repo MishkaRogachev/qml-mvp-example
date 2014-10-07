@@ -7,7 +7,6 @@ class QQuickItemView
 {
 public:
     QQuickItemView();
-    virtual ~QQuickItemView();
 
     QQuickItem* visualItem(const QString& objectName = QString());
     virtual void createVisualItem(QQuickItem* parentItem) = 0;

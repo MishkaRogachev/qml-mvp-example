@@ -3,11 +3,7 @@
 #include "view_pools/qml_view_pool.h"
 #include "presenters/main_presenter/main_presenter.h"
 
-//#include <QQuickView>
-//#include <QQmlEngine>
-//#include <QQmlComponent>
-//#include <QQuickItem>
-//#include <QDebug>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -16,16 +12,10 @@ int main(int argc, char *argv[])
     QmlViewPool viewPool;
 
     MainPresenter mainPresenter(&viewPool);
+    QObject::connect(&mainPresenter, &MainPresenter::quit,
+                     &app, &QGuiApplication::quit);
+
     mainPresenter.exec();
-
-//    QQuickView view;
-//    view.setSource(QUrl("qrc:///qml/MainView.qml"));
-//    view.setResizeMode(QQuickView::SizeRootObjectToView);
-//    view.showMaximized();
-
-//    QQmlComponent component(view.engine(), QUrl("qrc:///qml/MenuView.qml"));
-//    QQuickItem* item = qobject_cast<QQuickItem*>(component.create());
-//    item->setParentItem(view.rootObject()->findChild<QQuickItem*>("menuPlaceholder"));
 
     return app.exec();
 }

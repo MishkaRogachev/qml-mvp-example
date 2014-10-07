@@ -13,8 +13,8 @@ public:
 
     void exec();
 
-private slots:
-    void onShowed();
+signals:
+     void quit();
 
 private:
     class MainPresenterImpl;

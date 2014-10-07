@@ -13,7 +13,7 @@ public:
     virtual void show() = 0;
 
 signals:
-     void showed();
+     void quit();
 };
 
 #endif // I_VIEW_H

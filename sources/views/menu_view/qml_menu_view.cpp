@@ -1,8 +1,6 @@
 #include "qml_menu_view.h"
 
-#include <QQmlComponent>
-#include <QQuickItem>
-#include <QQmlEngine>
+#include <QDebug>
 
 #include "../main_view/qml_main_view.h"
 
@@ -23,5 +21,14 @@ void QmlMenuView::show(IMainView* parentView)
 {
     this->createVisualItem(qobject_cast<QmlMainView*>(
                                parentView)->visualItem(::placeholder));
+
+    connect(m_item, SIGNAL(clicked(QString)),
+            this, SLOT(onMenuActived(QString)));
+    m_item->setProperty("model", QStringList( { "File", "Edit", "View" } ));
+}
+
+void QmlMenuView::onMenuActived(QString value)
+{
+    qDebug() << value;
 }
 

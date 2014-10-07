@@ -8,11 +8,10 @@ QmlItemView::QmlItemView():
 
 void QmlItemView::createVisualItem(QQuickItem* parentItem)
 {
-    if (m_item) m_item->deleteLater();
-
     QQmlComponent component(qmlEngine(parentItem), this->source());
     m_item = qobject_cast<QQuickItem*>(component.create());
     m_item->setParentItem(parentItem);
+    QQmlEngine::setObjectOwnership(m_item, QQmlEngine::JavaScriptOwnership);
 }
 
 QUrl QmlItemView::source() const

@@ -1,6 +1,8 @@
 #include "qml_main_view.h"
 
-#include <QtQuick>
+#include <QQuickView>
+#include <QQmlContext>
+#include <QQmlEngine>
 
 namespace
 {
@@ -18,9 +20,15 @@ QmlMainView::QmlMainView(QObject* parent):
     QQuickItemView(),
     d(new QmlMainViewImpl())
 {
+    d->window.setFlags(Qt::CustomizeWindowHint);
     d->window.setSource(::source);
     d->window.setResizeMode(QQuickView::SizeRootObjectToView);
     this->createVisualItem(nullptr);
+
+    connect(d->window.rootContext(), &QQmlContext::destroyed,
+            this, &IMainView::quit);
+    connect(d->window.engine(), &QQmlEngine::quit,
+            this, &IMainView::quit);
 }
 
 QmlMainView::~QmlMainView()
@@ -30,8 +38,7 @@ QmlMainView::~QmlMainView()
 
 void QmlMainView::show()
 {
-    d->window.showMaximized();
-    emit this->showed();
+    d->window.show();
 }
 
 void QmlMainView::createVisualItem(QQuickItem* parentItem)

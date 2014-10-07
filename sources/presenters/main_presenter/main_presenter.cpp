@@ -1,9 +1,6 @@
 #include "main_presenter.h"
 
-#include <QDebug>
-
 #include "../menu_presenter/menu_presenter.h"
-
 
 class MainPresenter::MainPresenterImpl
 {
@@ -20,7 +17,7 @@ MainPresenter::MainPresenter(IViewPool* viewPool, QObject* parent):
     d->view = viewPool->mainView(this);
     d->menuPresenter = new MenuPresenter(viewPool, this);
 
-    connect(d->view, &IMainView::showed, this, &MainPresenter::onShowed);
+    connect(d->view, &IMainView::quit, this, &MainPresenter::quit);
 }
 
 MainPresenter::~MainPresenter()
@@ -32,9 +29,4 @@ void MainPresenter::exec()
 {
     d->view->show();
     d->menuPresenter->exec(d->view);
-}
-
-void MainPresenter::onShowed()
-{
-    qDebug() << "Main presenter showed";
 }

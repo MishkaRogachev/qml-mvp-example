@@ -4,14 +4,6 @@ QQuickItemView::QQuickItemView():
     m_item(nullptr)
 {}
 
-QQuickItemView::~QQuickItemView()
-{
-    if (m_item)
-    {
-        m_item->deleteLater();
-    }
-}
-
 QQuickItem* QQuickItemView::visualItem(const QString& objectName)
 {
     if (objectName.isNull())

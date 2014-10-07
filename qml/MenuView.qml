@@ -1,25 +1,33 @@
 import QtQuick 2.3
 
-
-Item {
+Row {
     id: root
-    width: 40
-    height: 40
+    anchors.fill: parent
+    anchors.margins: 5
+    spacing: 15
 
-    Image {
-        id: icon
-        anchors.fill: parent
-        source: "qrc:///resources/icons/menu.svg";
+    signal clicked(string s)
 
-        anchors.margins: iconMouseArea.containsMouse ? 5 : 10;
-        Behavior on anchors.margins {
-               NumberAnimation { duration: 100 }
-        }
+    property alias model: repeater.model
 
-        MouseArea {
-            id: iconMouseArea
-            anchors.fill: parent
-            hoverEnabled: true
+    Repeater {
+        id: repeater
+
+        Text {
+            id: text
+            color: "#EFF0F1"
+            text: modelData
+            font.underline: textMouseArea.containsMouse
+            font.pointSize: (textMouseArea.containsMouse &&
+                             textMouseArea.pressed) ? 14 : 12
+            anchors.verticalCenter: parent.verticalCenter
+
+            MouseArea {
+                id: textMouseArea
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: root.clicked(modelData)
+            }
         }
     }
 }
