@@ -20,7 +20,6 @@ QmlMainView::QmlMainView(QObject* parent):
     QQuickItemView(),
     d(new QmlMainViewImpl())
 {
-    d->window.setFlags(Qt::CustomizeWindowHint);
     d->window.setSource(::source);
     d->window.setResizeMode(QQuickView::SizeRootObjectToView);
     this->createVisualItem(nullptr);
