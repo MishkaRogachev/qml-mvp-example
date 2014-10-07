@@ -1,11 +1,19 @@
 #ifndef I_VIEW_H
 #define I_VIEW_H
 
-class IMainView
+#include <QObject>
+
+class IMainView: public QObject
 {
+    Q_OBJECT
+
 public:
+    explicit IMainView(QObject* parent): QObject(parent) {}
+
     virtual void show() = 0;
-    virtual void showFullscreen() = 0;
+
+signals:
+     void showed();
 };
 
 #endif // I_VIEW_H

@@ -10,7 +10,10 @@ SOURCES += \
     sources/presenters/main_presenter/main_presenter.cpp \
     sources/presenters/menu_presenter/menu_presenter.cpp \
     sources/view_pools/qml_view_pool.cpp \
-    sources/views/main_view/qml_main_view.cpp
+    sources/views/main_view/qml_main_view.cpp \
+    sources/views/menu_view/qml_menu_view.cpp \
+    sources/views/qquick_item_view.cpp \
+    sources/views/qml_item_view.cpp
 
 
 HEADERS += \
@@ -20,7 +23,10 @@ sources/presenters/menu_presenter/menu_presenter.h \
     sources/view_pools/i_view_pool.h \
     sources/view_pools/qml_view_pool.h \
     sources/views/main_view/qml_main_view.h \
-    sources/views/menu_view/i_menu_view.h
+    sources/views/menu_view/i_menu_view.h \
+    sources/views/menu_view/qml_menu_view.h \
+    sources/views/qquick_item_view.h \
+    sources/views/qml_item_view.h
 
 
 RESOURCES += \

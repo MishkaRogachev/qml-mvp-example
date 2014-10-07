@@ -1,22 +1,24 @@
 #ifndef MAIN_PRESENTER_H
 #define MAIN_PRESENTER_H
 
-#include <QObject>
-
 #include "../../view_pools/i_view_pool.h"
 
-class MainPresenter : public QObject
+class MainPresenter: public QObject
 {
     Q_OBJECT
 
 public:
     MainPresenter(IViewPool* viewPool, QObject* parent = nullptr);
-    virtual ~MainPresenter() override;
+    ~MainPresenter();
 
     void exec();
 
+private slots:
+    void onShowed();
+
 private:
-    IMainView* m_view;
+    class MainPresenterImpl;
+    MainPresenterImpl* d;
 };
 
 #endif // MAIN_PRESENTER_H

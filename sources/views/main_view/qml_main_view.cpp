@@ -1,18 +1,41 @@
 #include "qml_main_view.h"
 
-QmlMainView::QmlMainView(QWindow* parent):
-    QQuickView(parent),
-    IMainView()
+#include <QtQuick>
+
+namespace
 {
-    this->setSource(QUrl("qrc:///qml/MainView.qml"));
+    const QUrl source = QUrl("qrc:///qml/MainView.qml");
+}
+
+class QmlMainView::QmlMainViewImpl
+{
+public:
+    QQuickView window;
+};
+
+QmlMainView::QmlMainView(QObject* parent):
+    IMainView(parent),
+    QQuickItemView(),
+    d(new QmlMainViewImpl())
+{
+    d->window.setSource(::source);
+    d->window.setResizeMode(QQuickView::SizeRootObjectToView);
+    this->createVisualItem(nullptr);
+}
+
+QmlMainView::~QmlMainView()
+{
+    delete d;
 }
 
 void QmlMainView::show()
 {
-    QQuickView::show();
+    d->window.showMaximized();
+    emit this->showed();
 }
 
-void QmlMainView::showFullscreen()
+void QmlMainView::createVisualItem(QQuickItem* parentItem)
 {
-    QQuickView::showFullScreen();
+    Q_UNUSED(parentItem)
+    m_item = d->window.rootObject();
 }

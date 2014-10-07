@@ -1,7 +1,21 @@
-import QtQuick 2.0
+import QtQuick 2.3
 
 Rectangle {
-    width: 100
-    height: 62
-    color: "#1db1be"
+    id: root
+    color: "#bacce6"
+    width: 550
+    height: 480
+
+    Bar {
+        id: bar
+        height: 50
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        Item {
+            objectName: "menuPlaceholder"
+            anchors.fill: parent
+        }
+    }
 }

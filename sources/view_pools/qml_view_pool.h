@@ -6,7 +6,8 @@
 class QmlViewPool: public IViewPool
 {
 public:
-    virtual IMainView* mainView() override;
+    virtual IMainView* mainView(QObject* parent) override;
+    virtual IMenuView* menuView(QObject* parent) override;
 };
 
 #endif // QML_VIEW_POOL_H
