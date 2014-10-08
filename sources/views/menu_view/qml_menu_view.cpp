@@ -22,7 +22,6 @@ void QmlMenuView::show(IView* parentView)
 
     connect(m_item, SIGNAL(clicked(QString)),
             this, SIGNAL(selected(QString)));
-
 }
 
 void QmlMenuView::setMenuModel(const QStringList& model)
