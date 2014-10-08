@@ -15,7 +15,7 @@ QmlMenuView::QmlMenuView(QObject* parent):
     this->setSource(::source);
 }
 
-void QmlMenuView::show(IMainView* parentView)
+void QmlMenuView::show(IView* parentView)
 {
     this->createVisualItem(qobject_cast<QmlMainView*>(
                                parentView)->visualItem(::placeholder));

@@ -11,7 +11,7 @@ public:
     MenuPresenter(IViewPool* viewPool, QObject* parent = nullptr);
     ~MenuPresenter();
 
-    void exec(IMainView* parentView);
+    void exec(IView* parentView);
 
 private slots:
     void updateView();

@@ -1,19 +1,17 @@
-#ifndef I_VIEW_H
-#define I_VIEW_H
+#ifndef I_MAIN_VIEW_H
+#define I_MAIN_VIEW_H
 
-#include <QObject>
+#include "../common/i_view.h"
 
-class IMainView: public QObject
+class IMainView : public IView
 {
     Q_OBJECT
 
 public:
-    explicit IMainView(QObject* parent): QObject(parent) {}
-
-    virtual void show() = 0;
+    explicit IMainView(QObject* parent): IView(parent) {}
 
 signals:
      void quit();
 };
 
-#endif // I_VIEW_H
+#endif // I_MAIN_VIEW_H

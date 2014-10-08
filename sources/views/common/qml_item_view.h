@@ -3,7 +3,7 @@
 
 #include "qquick_item_view.h"
 
-class QmlItemView: public QQuickItemView
+class QmlItemView : public QQuickItemView
 {
 public:
     QmlItemView();

@@ -35,8 +35,10 @@ QmlMainView::~QmlMainView()
     delete d;
 }
 
-void QmlMainView::show()
+void QmlMainView::show(IView* parentView)
 {
+    Q_UNUSED(parentView)
+
     d->window.show();
 }
 

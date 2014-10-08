@@ -23,7 +23,7 @@ MenuPresenter::~MenuPresenter()
     delete d;
 }
 
-void MenuPresenter::exec(IMainView* parentView)
+void MenuPresenter::exec(IView* parentView)
 {
     d->view->show(parentView);
     this->updateView();
