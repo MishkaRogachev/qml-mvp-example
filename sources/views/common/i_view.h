@@ -10,7 +10,7 @@ class IView : public QObject
 public:
     explicit IView(QObject* parent = nullptr): QObject(parent) {}
 
-    virtual void show(IView* parentView = nullptr) = 0;
+    virtual void show(QObject* parentVisualItem = nullptr) = 0;
 };
 
 #endif // I_VIEW_H

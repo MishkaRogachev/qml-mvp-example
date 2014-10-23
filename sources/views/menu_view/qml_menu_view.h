@@ -11,7 +11,7 @@ class QmlMenuView: public IMenuView, public QmlItemView
 public:
     explicit QmlMenuView(QObject* parent);
 
-    virtual void show(IView* parentView) override;
+    virtual void show(QObject* parentVisualItem) override;
     virtual void setMenuModel(const QStringList& model) override;
 };
 

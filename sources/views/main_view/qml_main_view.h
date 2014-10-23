@@ -12,8 +12,10 @@ public:
     explicit QmlMainView(QObject* parent);
     ~QmlMainView() override;
 
-    virtual void show(IView* parentView) override;
+    virtual void show(QObject* parentVisualItem) override;
     virtual void createVisualItem(QQuickItem* parentItem) override;
+
+    virtual QQuickItem* menuVisualItem() override;
 
 private:
     class QmlMainViewImpl;

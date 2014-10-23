@@ -23,9 +23,9 @@ MenuPresenter::~MenuPresenter()
     delete d;
 }
 
-void MenuPresenter::exec(IView* parentView)
+void MenuPresenter::exec(QObject* parentVisualItem)
 {
-    d->view->show(parentView);
+    d->view->show(parentVisualItem);
     this->updateView();
 }
 

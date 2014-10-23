@@ -10,6 +10,8 @@ class IMainView : public IView
 public:
     explicit IMainView(QObject* parent): IView(parent) {}
 
+    virtual QObject* menuVisualItem() = 0;
+
 signals:
      void quit();
 };

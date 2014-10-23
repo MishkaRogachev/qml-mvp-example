@@ -7,6 +7,7 @@
 namespace
 {
     const QUrl source = QUrl("qrc:///qml/MainView.qml");
+    const QString menuPlaceholder = "menuPlaceholder";
 }
 
 class QmlMainView::QmlMainViewImpl
@@ -35,9 +36,9 @@ QmlMainView::~QmlMainView()
     delete d;
 }
 
-void QmlMainView::show(IView* parentView)
+void QmlMainView::show(QObject* parentVisualItem)
 {
-    Q_UNUSED(parentView)
+    Q_UNUSED(parentVisualItem)
 
     d->window.show();
 }
@@ -46,4 +47,9 @@ void QmlMainView::createVisualItem(QQuickItem* parentItem)
 {
     Q_UNUSED(parentItem)
     m_item = d->window.rootObject();
+}
+
+QQuickItem* QmlMainView::menuVisualItem()
+{
+    return this->visualItem(::menuPlaceholder);
 }

@@ -5,7 +5,6 @@
 namespace
 {
     const QUrl source = QUrl("qrc:///qml/MenuView.qml");
-    const QString placeholder = "menuPlaceholder";
 }
 
 QmlMenuView::QmlMenuView(QObject* parent):
@@ -15,10 +14,9 @@ QmlMenuView::QmlMenuView(QObject* parent):
     this->setSource(::source);
 }
 
-void QmlMenuView::show(IView* parentView)
+void QmlMenuView::show(QObject* parentVisualItem)
 {
-    this->createVisualItem(qobject_cast<QmlMainView*>(
-                               parentView)->visualItem(::placeholder));
+    this->createVisualItem(qobject_cast<QQuickItem*>(parentVisualItem));
 
     connect(m_item, SIGNAL(clicked(QString)),
             this, SIGNAL(selected(QString)));

@@ -28,5 +28,5 @@ MainPresenter::~MainPresenter()
 void MainPresenter::exec()
 {
     d->view->show();
-    d->menuPresenter->exec(d->view);
+    d->menuPresenter->exec(d->view->menuVisualItem());
 }
